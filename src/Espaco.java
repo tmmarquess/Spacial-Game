@@ -28,42 +28,40 @@ public class Espaco {
         }
     }
 
-    private int getLetterIndex(char letter){
-        String letras = "ABCDEFGHIJ";
-        return letras.indexOf(letter);
-    }
-
-    public void updatePositions(Nave player, Inimigo enemy){
+    public void updatePositions(Player player, Inimigo inim){
         inicializarEspaco();
-        int i = getLetterIndex(player.coords.charAt(0)) + 1;
-        int j = Integer.parseInt(player.coords.substring(1)) + 1;
-        cenario[i][j] = "|^|";
+        cenario[player.getiCoord()][player.getjCoord()] = "|▲|";
 
-        i = Integer.parseInt(enemy.coords.substring(0,1)) + 1;
-        j = Integer.parseInt(enemy.coords.substring(1));
-        cenario[i][j] = "|@|";
+        cenario[inim.getiCoord()][inim.getjCoord()] = "|⧫|";
     }
 
-    private void limpaConsole() {
-        try {
-            final String os = System.getProperty("o, js.name");
-
-            if (os.contains("Windows")) {
-                Runtime.getRuntime().exec("cls");
-            } else {
-                Runtime.getRuntime().exec("clear");
-            }
-        } catch (final Exception e) {
-        }
-    }
-
-    public void imprimeCenario(){
-        limpaConsole();
+    public void imprimeCenario(Player player, Inimigo inim){
+        updatePositions(player, inim);
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
+        
+        String HUD[] = {"       W","       ↑" ,"  A ←     → D" ,"       ↓" ,"       S", "","  E - Atirar","  ▲ - Player -> vidas = "+player.getVidas(), "  ⧫ - Inimigo -> saúde = "+inim.getSaude()+"%"};
+        int cont = 0;
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {
                 System.out.printf("%s ", cenario[i][j]);
+                if(j == 10 && i >= 1 && i <= 9){
+                    System.out.printf("\t%s", HUD[cont]);
+                    cont += 1;
+                }
             }
             System.out.printf("\n");
+        }
+    }
+
+    public void gameOverScreen(Player player, Inimigo inimigo){
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();
+
+        if(inimigo.getSaude() == 0){
+            System.out.println("Você venceu!");
+        }else{
+            System.out.println("Você perdeu!");
         }
     }
 }

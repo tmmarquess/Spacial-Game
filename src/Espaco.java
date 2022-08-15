@@ -28,7 +28,7 @@ public class Espaco {
         }
     }
 
-    public void updatePositions(Player player, Inimigo inim, int dano){
+    public void updatePositions(Player player, Inimigo inim, int dano, int iBullet, int jbullet){
         inicializarEspaco();
         if(dano == 1){
             cenario[player.getiCoord()][player.getjCoord()] = "|X|";
@@ -41,10 +41,14 @@ public class Espaco {
         }else{
             cenario[inim.getiCoord()][inim.getjCoord()] = "|■|";
         }
+
+        if(iBullet != 0 && jbullet != 0){
+            cenario[iBullet][jbullet] = "|^|";
+        }
     }
 
-    public void imprimeCenario(Player player, Inimigo inim, int dano){
-        updatePositions(player, inim, dano);
+    public void imprimeCenario(Player player, Inimigo inim, int dano, int iBullet,int  jBullet){
+        updatePositions(player, inim, dano, iBullet, jBullet);
         System.out.println("\033[H\033[2J");  
         System.out.flush();  
         

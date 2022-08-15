@@ -39,7 +39,7 @@ public class Espaco {
         if(dano == 2){
             cenario[inim.getiCoord()][inim.getjCoord()] = "|X|";
         }else{
-            cenario[inim.getiCoord()][inim.getjCoord()] = "|⧫|";
+            cenario[inim.getiCoord()][inim.getjCoord()] = "|■|";
         }
     }
 
@@ -48,7 +48,7 @@ public class Espaco {
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
         
-        String HUD[] = {"       W","       ↑" ,"  A ←     → D" ,"       ↓" ,"       S", "","  E - Atirar","  ▲ - Player -> vidas = "+player.getVidas(), "  ⧫ - Inimigo -> saúde = "+inim.getSaude()+"%"};
+        String HUD[] = {"       W","       ↑" ,"  A ←     → D" ,"       ↓" ,"       S", "","  E - Atirar","  ▲ - Player -> vidas = "+player.getVidas(), "  ■ - Inimigo -> saúde = "+inim.getSaude()+"%"};
         int cont = 0;
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {

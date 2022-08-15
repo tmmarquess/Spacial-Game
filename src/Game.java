@@ -42,14 +42,14 @@ public class Game {
     private void playerShoot(Player player, Inimigo inim){
         if(player.getjCoord() == inim.getjCoord()){
             if(player.getiCoord() > inim.getiCoord()){
-                inimigo.getDano();
-                inim.setRandomPos();
+                inimigo.getDano();                
                 tela.imprimeCenario(player, inim, 2);
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                inim.setRandomPos();
             }
         }
     }

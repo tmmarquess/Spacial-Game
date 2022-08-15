@@ -43,6 +43,7 @@ public class Game {
         if(player.getjCoord() == inim.getjCoord()){
             if(player.getiCoord() > inim.getiCoord()){
                 inimigo.getDano();
+                inim.setRandomPos();
                 tela.imprimeCenario(player, inim, 2);
                 try {
                     Thread.sleep(1000);

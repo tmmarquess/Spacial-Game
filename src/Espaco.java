@@ -45,7 +45,7 @@ public class Espaco {
 
     public void imprimeCenario(Player player, Inimigo inim, int dano){
         updatePositions(player, inim, dano);
-        System.out.print("\033[H\033[2J");  
+        System.out.println("\033[H\033[2J");  
         System.out.flush();  
         
         String HUD[] = {"       W","       ↑" ,"  A ←     → D" ,"       ↓" ,"       S", "","  E - Atirar","  ▲ - Player -> vidas = "+player.getVidas(), "  ■ - Inimigo -> saúde = "+inim.getSaude()+"%"};
@@ -62,8 +62,20 @@ public class Espaco {
         }
     }
 
+    public void imprimeEspaco(){
+        System.out.println("\033[H\033[2J");  
+        System.out.flush();  
+        
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 11; j++) {
+                System.out.printf("%s ", cenario[i][j]);
+            }
+            System.out.printf("\n");
+        }
+    }
+
     public void gameOverScreen(Player player, Inimigo inimigo){
-        System.out.print("\033[H\033[2J");  
+        System.out.println("\033[H\033[2J");  
         System.out.flush();
 
         if(inimigo.getSaude() == 0){

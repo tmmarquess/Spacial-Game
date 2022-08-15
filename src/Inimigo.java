@@ -18,17 +18,26 @@ public class Inimigo {
     public void move(){
         Random rand = new Random();
         int i = getiCoord(), j = getjCoord();
-        i += rand.ints(-1, 2).findFirst().getAsInt();
-        j += rand.ints(-1, 2).findFirst().getAsInt();
 
-        if(i == 0)
-            i += 1;
-        if(i == 11)
-            i -= 1;
-        if(j == 0)
-            j += 1;
-        if(j == 11)
-            j -= 1;
+        if(i == 1){
+            i += rand.ints(0, 2).findFirst().getAsInt();
+        }else{
+            if(i == 10){
+                i += rand.ints(-1, 1).findFirst().getAsInt();
+            }else{
+                i += rand.ints(-1, 2).findFirst().getAsInt();
+            }
+        }
+
+        if(j == 1){
+            j += rand.ints(0, 2).findFirst().getAsInt();
+        }else{
+            if(j == 10){
+                j += rand.ints(-1, 1).findFirst().getAsInt();
+            }else{
+                j += rand.ints(-1, 2).findFirst().getAsInt();
+            }
+        }
 
         setiCoord(i);
         setjCoord(j);

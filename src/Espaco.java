@@ -28,15 +28,23 @@ public class Espaco {
         }
     }
 
-    public void updatePositions(Player player, Inimigo inim){
+    public void updatePositions(Player player, Inimigo inim, int dano){
         inicializarEspaco();
-        cenario[player.getiCoord()][player.getjCoord()] = "|▲|";
+        if(dano == 1){
+            cenario[player.getiCoord()][player.getjCoord()] = "|X|";
+        }else{
+            cenario[player.getiCoord()][player.getjCoord()] = "|▲|";
+        }
 
-        cenario[inim.getiCoord()][inim.getjCoord()] = "|⧫|";
+        if(dano == 2){
+            cenario[inim.getiCoord()][inim.getjCoord()] = "|X|";
+        }else{
+            cenario[inim.getiCoord()][inim.getjCoord()] = "|⧫|";
+        }
     }
 
-    public void imprimeCenario(Player player, Inimigo inim){
-        updatePositions(player, inim);
+    public void imprimeCenario(Player player, Inimigo inim, int dano){
+        updatePositions(player, inim, dano);
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
         

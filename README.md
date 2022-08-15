@@ -1,18 +1,19 @@
-## Getting Started
+# Spacial Game
+Projeto que consiste na AP1 da disciplina Projetos de Programas do Período 2022/1
+> Alunos Fernando Freires e Thiago Marques
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Como jogar?
+ O jogo consiste em uma matriz 10X10 onde estão posicionados a nave inimiga(posicionada aleatoriamente) e a nave do player(posicionado pela jogador)
 
-## Folder Structure
+A cada rodada, o player pode decidir entre seguir em uma das quatro direções, ou atirar para frente. A nave inimiga poderá se mover no raio de 1 bloco ao seu redor.
 
-The workspace contains two folders by default, where:
+O objetivo do player é atirar na nave inimiga e acabar com a sua saúde. O player perde caso colida com a nave inimiga 3 vezes.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Controles
+|   Tecla   |        Ação        |
+|:---------:|:------------------:|
+|   **A**   | Ir para a esquerda |
+|   **W**   |   Ir para frente   |
+|   **S**   |    Ir para baixo   |
+|   **D**   |  Ir para a direita |
+|   **E**   |       Atirar       |
